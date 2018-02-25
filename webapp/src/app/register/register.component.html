@@ -1,0 +1,28 @@
+<mat-card class="registerCard">
+    <mat-toolbar class="centerText">
+        <span class='spacer'></span>
+          Register     
+        <span class='spacer'></span>
+    </mat-toolbar>
+    <mat-card-content>
+      <br>
+
+      <mat-form-field >
+        <input matInput placeholder="Username" [(ngModel)]="registrationCredentials.username">
+      </mat-form-field>
+      <br>
+    
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" [(ngModel)]="registrationCredentials.password1">
+      </mat-form-field>
+
+      <mat-form-field>
+          <input matInput type="password" placeholder="Password again" [(ngModel)]="registrationCredentials.password2">
+      </mat-form-field>
+
+      <br>
+      <button (click)="registerUser()" class='headerButton' color='link' mat-raised-button>Register</button>
+
+    </mat-card-content>
+  </mat-card>
+  
