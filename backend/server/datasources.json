@@ -1,0 +1,29 @@
+{
+  "mydb": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "boozeApp",
+    "name": "mydb",
+    "connector": "mongodb"
+  },
+  "lcboApiSearch": {
+    "name": "lcboApiSearch",
+    "baseURL": "https://lcboapi.com/",
+    "crud": false,
+    "connector": "rest",
+    "operations": [{
+    "template": {
+      "method": "GET",
+      "url": "https://lcboapi.com/products?q={query}",
+      "headers": {
+        "accepts": "application/json",
+        "content-type": "application/json",
+        "Authorization": "Token {apiKey}"
+      }
+    },
+    "functions": {
+      "search": ["query", "apiKey"]
+    }
+  }]
+  }
+}

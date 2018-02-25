@@ -1,0 +1,30 @@
+{
+  "name": "CustomUser",
+  "plural": "CustomUsers",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "boozeApiKey": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "searchHistory": {
+      "type": "hasMany",
+      "model": "searchHistory",
+      "foreignKey": "userId"
+    },
+    "viewHistory": {
+      "type": "hasMany",
+      "model": "viewHistory",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

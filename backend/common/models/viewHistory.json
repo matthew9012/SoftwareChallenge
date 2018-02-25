@@ -1,0 +1,30 @@
+{
+  "name": "ViewHistory",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "userId": {
+      "type": "number",
+      "required": true
+    },
+    "productId": {
+      "type": "number",
+      "required": true
+    },
+    "viewDate": {
+      "type": "date",
+      "required": true
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }    
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
