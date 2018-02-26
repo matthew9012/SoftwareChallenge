@@ -9,7 +9,7 @@
   "properties": {
     "boozeApiKey": {
       "type": "string",
-      "required": true
+      "required": false
     }
   },
   "validations": [],
@@ -25,6 +25,41 @@
       "foreignKey": "userId"
     }
   },
-  "acls": [],
+  "acls": [ 
+      { "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "DENY" },
+      { "principalType": "ROLE",
+        "principalId": "$owner",
+        "permission": "ALLOW" },
+      { "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "ALLOW",
+        "property": "create" },
+      { "principalType": "ROLE",
+        "principalId": "$owner",
+        "permission": "ALLOW",
+        "property": "deleteById" },
+      { "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "ALLOW",
+        "property": "login" },
+      { "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "ALLOW",
+        "property": "logout" },
+      { "principalType": "ROLE",
+        "principalId": "$owner",
+        "permission": "ALLOW",
+        "property": "findById" },
+      { "principalType": "ROLE",
+        "principalId": "$owner",
+        "permission": "ALLOW",
+        "property": "updateAttributes" },
+      { "principalType": "ROLE",
+        "principalId": "$everyone",
+        "permission": "ALLOW",
+        "property": "confirm" }
+    ],
   "methods": {}
 }

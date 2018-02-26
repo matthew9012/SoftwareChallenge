@@ -2,10 +2,10 @@
 
 var loopback = require('loopback');
 var boot = require('loopback-boot');
-var boozeSearch = require('./boozeSearch/search-service');
+var boozeSearch = require('./lcboApiServices/search-service');
 var app = module.exports = loopback();
 
-app.use('/getBooze/:query', function(req, res, next) {
+app.use('/searchBooze/:query', function(req, res, next) {
   boozeSearch(app, req, res, next);
 });
 

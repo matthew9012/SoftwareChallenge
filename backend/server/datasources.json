@@ -11,19 +11,24 @@
     "baseURL": "https://lcboapi.com/",
     "crud": false,
     "connector": "rest",
-    "operations": [{
-    "template": {
-      "method": "GET",
-      "url": "https://lcboapi.com/products?q={query}",
-      "headers": {
-        "accepts": "application/json",
-        "content-type": "application/json",
-        "Authorization": "Token {apiKey}"
+    "operations": [
+      {
+        "template": {
+          "method": "GET",
+          "url": "https://lcboapi.com/products?q={query}",
+          "headers": {
+            "accepts": "application/json",
+            "content-type": "application/json",
+            "Authorization": "Token {apiKey}"
+          }
+        },
+        "functions": {
+          "search": [
+            "query",
+            "apiKey"
+          ]
+        }
       }
-    },
-    "functions": {
-      "search": ["query", "apiKey"]
-    }
-  }]
+    ]
   }
 }
