@@ -1,10 +1,11 @@
-<mat-list>
-        <app-search-list-item></app-search-list-item>
-        <app-search-list-item></app-search-list-item>
-
-        <app-search-list-item></app-search-list-item>
-
-        <app-search-list-item></app-search-list-item>
-        <app-search-list-item></app-search-list-item>
-
-</mat-list>
+<mat-grid-list [cols]=3 [rowHeight]="200">
+<mat-grid-tile *ngFor="let item of items | async">
+        
+        <mat-card>
+                <h3>{{item.name}}</h3>
+                <div>
+                        <img src={{item.image_thumb_url}} (click)="viewProduct(item)">
+                </div>
+        </mat-card>
+</mat-grid-tile>
+</mat-grid-list>

@@ -5,21 +5,16 @@
         <span class='spacer'></span>
     </mat-toolbar>
     <mat-card-content>
-      <form name="Form">
-        <form>
-          <br>
-  
-          <mat-form-field class="wide">
-            <input matInput placeholder="Token">
-          </mat-form-field>
-          <br>
-  
-          <br>
-          <button class='headerButton' color='link' mat-raised-button>Set</button>
-  
-          <h3> If you do not have a token yet, please visit <a href="https://lcboapi.com/">https://lcboapi.com/</a> to register and obtain one.</h3>
-        </form>
-      </form>
+        <br>
+
+        <mat-form-field class="wide">
+          <input [(ngModel)]="apiTokenInput" matInput placeholder="Token">
+        </mat-form-field>
+        <br>
+        <br>
+        <button (click)="setToken()" class='headerButton' color='link' mat-raised-button>Set</button>
+
+        <h3> If you do not have a token yet, please visit <a href="https://lcboapi.com/">https://lcboapi.com/</a> to register and obtain one.</h3>
     </mat-card-content>
   </mat-card>
   

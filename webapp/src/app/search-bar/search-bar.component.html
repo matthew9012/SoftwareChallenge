@@ -1,5 +1,3 @@
-<form class="form">
-    <mat-form-field class="searchInput">
-      <input matInput placeholder="Search for Booze!">
-    </mat-form-field>
-</form>
+<mat-form-field class="searchInput">
+  <input matInput placeholder="Search for Booze!" [(ngModel)]="this.searchQuery" (keydown.enter)="search()">
+</mat-form-field>
