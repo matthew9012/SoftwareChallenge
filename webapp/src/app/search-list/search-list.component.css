@@ -12,7 +12,22 @@ img{
     position:absolute;
     bottom:10px;
     right:10px;
+    cursor: pointer;
 }
 h3 {
     max-width: 65%;
+}
+.bottomLeft {
+    position: absolute;
+    right:8px;
+    top:8px;
+}
+.price {
+    position: absolute;
+    left: 10%;
+    bottom: 10%;
+}
+.dollars{
+    font-weight: bold;
+    font-size: 1.1em;
 }

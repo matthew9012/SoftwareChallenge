@@ -23,21 +23,25 @@ export class SearchListComponent implements OnInit {
     this.items = this.store.select(state => state.search.searchResults);
     this.store.select(state => state.auth.userId).subscribe(
       id => this.userId = id);
-
   }
 
   viewProduct(item: any) {
     window.open(item.image_url);
     const viewHistory: ViewHistory = {
-      userId: parseInt(this.userId.toString(), 10),
+      userId: this.userId.toString(),
       productId: item.id,
       url: item.image_url,
       viewDate: new Date(Date.now())
     };
 
     this.historyApi.viewHistoryCreate(viewHistory).subscribe(
-      success => console.log(success),
+      success => this.handleSuccess(item, success),
       error => console.log(error)
     );
+  }
+  private handleSuccess(item: any, success: any) {
+    console.log(success);
+    item.hasBeenViewed = true;
+
   }
 }

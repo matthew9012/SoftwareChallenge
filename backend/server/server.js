@@ -8,7 +8,11 @@ var app = module.exports = loopback();
 app.use(function(req, res, next) {
   var accessToken = req.header('Authorization');
   if (accessToken) {
-    app.models.AccessToken.find({where: {id: accessToken}}, function(err, users) {
+    app.models.AccessToken.find({
+      where: {
+        id: accessToken,
+      },
+    }, function(err, users) {
       if (users.length > 0) {
         req.userIdFromSession = users[0].userId;
         console.log('id in middleware: ' + req.userIdFromSession);
@@ -48,4 +52,3 @@ boot(app, __dirname, function(err) {
   if (require.main === module)
     app.start();
 });
-

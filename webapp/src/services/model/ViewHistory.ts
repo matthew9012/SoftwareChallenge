@@ -13,7 +13,7 @@
 import * as models from './models';
 
 export interface ViewHistory {
-    userId: number;
+    userId: string;
 
     productId: number;
 

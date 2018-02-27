@@ -13,7 +13,7 @@
 import * as models from './models';
 
 export interface SearchHistory {
-    userId: number;
+    userId: string;
 
     searchString: string;
 

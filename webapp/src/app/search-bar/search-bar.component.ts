@@ -13,17 +13,18 @@ import { NewSearch } from '../../actions/search';
 export class SearchBarComponent implements OnInit {
 
   searchQuery: String;
-
+  sessionId: String;
   constructor(
     private searchApi: SearchApiService,
     private store: Store<State>
   ) { }
 
   ngOnInit() {
+    this.store.select(state => state.auth).subscribe(auth => this.sessionId = auth.sessionId);
   }
 
   search() {
-    this.searchApi.getSearchResults(this.searchQuery).subscribe(
+    this.searchApi.getSearchResults(this.searchQuery, this.sessionId.toString()).subscribe(
       success => this.handleSuccess(this.searchQuery, success),
       error => this.handleError(error)
     );

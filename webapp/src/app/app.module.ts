@@ -21,6 +21,7 @@ import { HeaderComponent } from './header/header.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SearchListComponent } from './search-list/search-list.component';
 import { SetTokenComponent } from './set-token/set-token.component';
+import { CentsToDollars } from '../pipes/cents-to-dollars';
 
 import { reducers} from '../reducers';
 import { HttpModule } from '@angular/http';
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     SearchBarComponent,
     SearchListComponent,
-    SetTokenComponent
+    SetTokenComponent,
+    CentsToDollars
   ],
   imports: [
     BrowserModule,

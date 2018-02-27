@@ -7,7 +7,7 @@
   },
   "properties": {
     "userId": {
-      "type": "number",
+      "type": "string",
       "required": true
     },
     "searchString": {

@@ -3,6 +3,8 @@
         
         <mat-card>
                 <h3>{{item.name}}</h3>
+                <span class="price"><span class="dollars">{{item.price_in_cents | centsToDollars}}</span> / {{item.total_package_units}}</span>
+                <span *ngIf="item.hasBeenViewed" class="bottomLeft">Viewed</span>
                 <div>
                         <img src={{item.image_thumb_url}} (click)="viewProduct(item)">
                 </div>
