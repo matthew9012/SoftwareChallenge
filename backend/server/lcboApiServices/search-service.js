@@ -1,9 +1,20 @@
 'use strict';
-let token = 'MDpjZWMyMDlmYS0xOTllLTExZTgtOTFhZC01MzYxZDg2YTM' +
-        'xNzk6akMxWXdZaUpOZ0VqeEhsa2RFY1RhaWFSUVJBbHo0alNrSUZu';
 
 module.exports = function(app, req, res, next) {
-  app.dataSources.lcboApiSearch.search(req.params.query, token)
-    .then((response) => res.send(response)
-    .catch((error) => res.send(error)));
+  if (!req.userIdFromSession) {
+    res.statusCode = 401;
+    res.send('Not authenticated');
+    next();
+  } else {
+    app.models.CustomUser.find({where: {id: req.userIdFromSession}},
+      function(err, users) {
+        console.log('user(s) from session Id: ');
+        console.log(users);
+        app.dataSources.lcboApiSearch.search(req.params.query, users[0].boozeApiKey)
+        .then(function(response) {
+          res.send(response);
+        })
+        .catch((error) => res.send(error));
+      });
+  }
 };

@@ -5,7 +5,24 @@ var boot = require('loopback-boot');
 var boozeSearch = require('./lcboApiServices/search-service');
 var app = module.exports = loopback();
 
-app.use('/searchBooze/:query', function(req, res, next) {
+app.use(function(req, res, next) {
+  var accessToken = req.header('Authorization');
+  if (accessToken) {
+    app.models.AccessToken.find({where: {id: accessToken}}, function(err, users) {
+      if (users.length > 0) {
+        req.userIdFromSession = users[0].userId;
+        console.log('id in middleware: ' + req.userIdFromSession);
+      } else {
+        console.log('Unauthenticated');
+      }
+      next();
+    });
+  } else {
+    next();
+  }
+});
+
+app.get('/searchBooze/:query', function(req, res, next) {
   boozeSearch(app, req, res, next);
 });
 
