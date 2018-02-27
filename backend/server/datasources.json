@@ -1,4 +1,8 @@
 {
+  "cache": {
+    "name": "cache",
+    "connector": "memory"
+  },
   "mydb": {
     "host": "localhost",
     "port": 27017,

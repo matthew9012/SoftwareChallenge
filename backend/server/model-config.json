@@ -43,5 +43,9 @@
   "CustomUser": {
     "dataSource": "mydb",
     "public": true
+  },
+  "ViewedItemCache": {
+    "dataSource": "cache",
+    "public": false
   }
 }
