@@ -20,7 +20,7 @@ The backend is written in LoopBack with MongoDB for a database. LoopBack's built
 
     ```npm install```
 
-    ```ng serve```
+    ```npm start```
 
 2. In a separate shell, install dependencies for backend and run
 
@@ -30,6 +30,7 @@ The backend is written in LoopBack with MongoDB for a database. LoopBack's built
     ```npm install```
 
     Run appropriate start script for your environment
+    ```mkdir db```
 
     ```npm run start-windows```
 
