@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function (app, req, res, next) {
+module.exports = function(app, req, res, next) {
   if (!req.userIdFromSession) {
     res.statusCode = 401;
     res.send('Not authenticated');
