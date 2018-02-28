@@ -14,6 +14,8 @@ The backend is written in LoopBack with MongoDB for a database. LoopBack's built
 
 ## How To Run!
 
+Download [NodeJS](https://nodejs.org/en/) first.
+
 1. Install dependencies for front end and run
 
     ```cd webapp```
@@ -30,6 +32,7 @@ The backend is written in LoopBack with MongoDB for a database. LoopBack's built
     ```npm install```
 
     Run appropriate start script for your environment
+    
     ```mkdir db```
 
     ```npm run start-windows```
