@@ -1,7 +1,13 @@
 <mat-toolbar>
-  <a routerLink="/login"><button class='headerButton' color='link' mat-raised-button>Login</button></a>
+
+  <a *ngIf="!(authState | async).isLoggedIn; else Logout" routerLink="/login"><button class='headerButton' color='link' mat-raised-button>Login</button></a>
+  <ng-template #Logout>
+    <button class='headerButton' color='link' (click)="logOut()" mat-raised-button>Logout</button>
+  </ng-template>
+
   <span class='spacer'></span>
     <h3>Booze Search App!</h3>
   <span class='spacer'></span>
-  <a routerLink="/register"><button class='headerButton' color='link' mat-raised-button>Register</button></a>
+
+  <a *ngIf="!(authState | async).isLoggedIn" routerLink="/register"><button class='headerButton' color='link' mat-raised-button>Register</button></a>
 </mat-toolbar>
